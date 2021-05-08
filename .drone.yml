@@ -13,8 +13,10 @@ steps:
   image: appleboy/drone-ssh
   settings:
     host: 35.221.234.248
-    username: jim515jim
-    password: 1234
+    username:
+      from_secret: username
+    key:
+      from_secret: ssh_key
     port: 22
     script:
       - echo hello
