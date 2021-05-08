@@ -21,3 +21,5 @@ steps:
     script:
       - echo hello
       - echo world
+      - cd Projects/Drone/
+      - git pull
