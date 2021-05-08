@@ -8,3 +8,13 @@ steps:
   commands:
   - go build
   - go test
+
+- name: ssh
+  image: appleboy/drone-ssh
+  settings:
+    host: 35.221.234.248
+    username: jim515jim
+    port: 22
+    script:
+      - echo hello
+      - echo world
