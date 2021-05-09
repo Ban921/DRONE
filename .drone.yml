@@ -17,3 +17,6 @@ steps:
       - echo world
       - cd Projects/Drone/
       - git pull
+    when:
+      branch:
+      - main
