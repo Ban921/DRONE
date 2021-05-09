@@ -1,17 +1,19 @@
 kind: pipeline
-type: ssh
+type: docker
 name: default
 
-server:
-  host: 35.221.234.248
-  user:
-    from_secret: username
-  password:
-    from_secret: password
-  port: 22
-
 steps:
-- name: pull
-  commands:
-  - cd Projects/Drone/
-  - git pull
+- name: ssh
+  image: appleboy/drone-ssh
+  settings:
+    host: 35.221.234.248
+    username:
+      from_secret: username
+    key:
+      from_secret: ssh_key
+    port: 22
+    script:
+      - echo hello
+      - echo world
+      - cd Projects/Drone/
+      - git pull
